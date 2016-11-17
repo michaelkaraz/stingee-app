@@ -1,0 +1,29 @@
+﻿
+<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
+    <mdl-layout-header>
+        <mdl-layout-header-row>
+            <mdl-layout-title>We are Exeliatech</mdl-layout-title>
+            <mdl-layout-spacer></mdl-layout-spacer>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" routerLink="/vouchers">Vouchers</a>
+            </nav>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" routerLink="/examples" href="#">Examples</a>
+            </nav>
+        </mdl-layout-header-row>
+    </mdl-layout-header>
+    <mdl-layout-drawer>
+        <mdl-layout-title>Stingee Nav</mdl-layout-title>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" routerLink="/vouchers" href="#">Vouchers</a>
+        </nav>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" routerLink="/examples" href="#">Examples</a>
+        </nav>
+    </mdl-layout-drawer>
+    <mdl-layout-content class="demo-content">
+        <router-outlet></router-outlet>
+    </mdl-layout-content>
+</mdl-layout>
+
