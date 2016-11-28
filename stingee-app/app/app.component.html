@@ -1,29 +1,50 @@
 ﻿
-<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
-    <mdl-layout-header>
-        <mdl-layout-header-row>
-            <mdl-layout-title>We are Exeliatech</mdl-layout-title>
-            <mdl-layout-spacer></mdl-layout-spacer>
-            <!-- Navigation. We hide it in small screens. -->
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" routerLink="/vouchers">Vouchers</a>
-            </nav>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" routerLink="/examples" href="#">Examples</a>
-            </nav>
-        </mdl-layout-header-row>
-    </mdl-layout-header>
-    <mdl-layout-drawer>
-        <mdl-layout-title>Stingee Nav</mdl-layout-title>
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" routerLink="/vouchers" href="#">Vouchers</a>
-        </nav>
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" routerLink="/examples" href="#">Examples</a>
-        </nav>
-    </mdl-layout-drawer>
-    <mdl-layout-content class="demo-content">
-        <router-outlet></router-outlet>
-    </mdl-layout-content>
-</mdl-layout>
+<nav class="navbar navbar-dark navbar-fixed-top scrolling-navbar">
 
+    <!-- Collapse button-->
+    <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="container">
+
+        <!--Collapse content-->
+        <div class="collapse navbar-toggleable-xs" id="collapseEx">
+            <!--Navbar Brand-->
+           
+            <a href="http://www.stinjee.com/" class="navbar-brand">
+                <img src="http://www.stinjee.com/StinJeeWebLnx/wp-content/uploads/2015/12/SJ-logo-white-nopunch.png"  alt="Stin Jee Limited" class="logo-default">
+            </a>
+            <!--Links-->
+            
+            <!--Search form-->
+            <form class="form-inline">
+                <ul class="nav navbar-nav navbar-right">
+                    <!--<li class="nav-item active">
+                        <a class="nav-link  mdl-navigation__link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+                    </li>-->
+
+                    <li class="nav-item">
+                        <a class="nav-link mdl-navigation__link" routerLink="/vouchers">Specials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/about">About</a>
+                    </li>  <li class="nav-item">
+                               <input class="form-control" type="text" placeholder="Search">
+                    </li>
+                    
+                </ul>
+              
+            </form>
+        </div>
+        <!--/.Collapse content-->
+
+    </div>
+
+</nav>
+<!--/.Navbar-->
+
+<!--Content-->
+<router-outlet></router-outlet>
+
+<!--/.Content-->

@@ -1,26 +1,47 @@
-﻿ .demo-card-square.mdl-card {
+﻿.demo-card-square.mdl-card {
     width: 320px;
     height: 320px;
     float: left;
-    margin: 1rem;
+    margin: 0.5rem;
     position: relative;
-  }
-  
-  .demo-card-square.mdl-card:hover {
-    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2);
-  }
-  
-  .demo-card-square > .mdl-card__title {
-    color: #fff;
-    background: #03a9f4;
-  }
-  
-  .demo-card-square > .mdl-card__accent {
+}
+
+    .demo-card-square.mdl-card:hover {
+        box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2);
+    }
+
+.demo-card-square > .mdl-card__title {
+}
+
+.demo-card-square > mdl-card__supporting-text {
+}
+
+.demo-card-square > mdl-card__media {
+    position: relative;
+    width: 100%; /* for IE 6 */
+}
+
+.demo-card-square > .mdl-card__accent {
     background: #ff9800;
-  }
-  
-  body {
-    padding: 20px;
-    background: #fafafa;
-    position: relative;
-  }
+}
+
+.demo-card-square > .mdl-card__actions {
+}
+
+body {
+}
+
+
+
+
+.brick {
+        width: 320px;
+    height: 320px;
+    float: left;
+    margin: 0.5rem;
+}
+
+
+body {
+    background-color: #f1f1f1;
+}

@@ -11,13 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
+var angular2_infinite_scroll_1 = require('angular2-infinite-scroll');
+var http_1 = require('@angular/http');
 var angular2_mdl_1 = require('angular2-mdl');
 var app_component_1 = require('./app.component');
+var angular2_masonry_1 = require('angular2-masonry');
 var vouchers_component_1 = require('./vouchers.component');
 var voucher_detail_component_1 = require('./voucher-detail.component');
 var examples_component_1 = require('./examples-component');
 var voucher_service_1 = require('./voucher.service');
+var geolocation_service_1 = require('./geolocation.service');
+var home_component_1 = require('./home.component');
 var app_routing_module_1 = require('./app-routing.module');
+var spinner_component_1 = require('./spinner.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,13 +31,16 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
+                http_1.HttpModule,
                 forms_1.FormsModule,
                 angular2_mdl_1.MdlModule,
-                app_routing_module_1.AppRoutingModule
+                app_routing_module_1.AppRoutingModule,
+                angular2_infinite_scroll_1.InfiniteScrollModule,
+                angular2_masonry_1.MasonryModule
             ],
-            declarations: [app_component_1.AppComponent, vouchers_component_1.VouchersComponent, voucher_detail_component_1.VoucherDetailComponent, examples_component_1.ExamplesComponent],
+            declarations: [app_component_1.AppComponent, vouchers_component_1.VouchersComponent, voucher_detail_component_1.VoucherDetailComponent, examples_component_1.ExamplesComponent, home_component_1.HomeComponent, spinner_component_1.SpinnerComponent],
             bootstrap: [app_component_1.AppComponent],
-            providers: [voucher_service_1.VoucherService]
+            providers: [voucher_service_1.VoucherService, geolocation_service_1.GeolocationService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

@@ -13,8 +13,10 @@ var router_1 = require('@angular/router');
 var vouchers_component_1 = require('./vouchers.component');
 var voucher_detail_component_1 = require('./voucher-detail.component');
 var examples_component_1 = require('./examples-component');
+var home_component_1 = require('./home.component');
 var routes = [
-    { path: '', redirectTo: '/vouchers', pathMatch: 'full' },
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'home', component: home_component_1.HomeComponent },
     { path: 'detail/:id', component: voucher_detail_component_1.VoucherDetailComponent },
     { path: 'vouchers', component: vouchers_component_1.VouchersComponent },
     { path: 'examples', component: examples_component_1.ExamplesComponent }

@@ -1,85 +1,94 @@
 ﻿
-<div *ngIf="voucher">
-    <h2>{{voucher.name}} details!</h2>
-    <div>
-        <label>description: </label>
-        <input [(ngModel)]="voucher.description" placeholder="name" />
+<br>
+<br>
+<br />
+
+<div class="container" *ngIf="specialInfo">
+
+    <div class="container">
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--4-col">
+                <div class="demo-card-square mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp">
+                    <figure class="mdl-card__media">
+                        <img [src]="specialInfo.image" alt="" />
+                    </figure>
+                    <div class="mdl-card__title">
+                        <h1 class="mdl-card__title-text">{{specialInfo.name}}</h1>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <p>{{specialInfo.description}}</p>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                      
+                      
+                        <button class="main-red mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                            <div id="tt3" class="icon material-icons">shop</div>
+                            <div class="mdl-tooltip" data-mdl-for="tt3">
+                                Get it now
+                            </div>
+                        </button>
+                        <button class="main-orange mdl-button mdl-js-button mdl-button--icon mdl-button--colored" (click)="fbFunction()">
+                            <div id="tt3" class="icon material-icons">share</div>
+                            <div class="mdl-tooltip" data-mdl-for="tt3">
+                                share on facebook
+                            </div>
+                        </button>
+                        <button class="main-green mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                            <div id="tt3" class="icon material-icons">phone</div>
+                            <div class="mdl-tooltip" data-mdl-for="tt3">
+                                Dial Number
+                            </div>
+                        </button>
+                        <button class="main-blue mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                            <div id="tt3" class="icon material-icons">swap_calls</div>
+                            <div class="mdl-tooltip" data-mdl-for="tt3">
+
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--3-col">
+                &nbsp;
+            </div>
+            <div class="mdl-cell mdl-cell--4-col">
+                <div class="card horizontal" >
+                    <div class="card-image" *ngIf="specialInfo.store_logo">
+                        <img [src]="specialInfo.store_logo"><br />
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content" *ngIf="specialInfo.siteSafeUrl">
+                                <iframe width="600"
+                                        height="450"
+                                        frameborder="0" style="border: 0"
+                                        [src]="specialInfo.siteSafeUrl" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-action">
+
+                            <a target="_blank" style="width: 100%" class="mdl-button mdl-js-button mdl-ja-ripple-effect" href="{{specialInfo.site}}">
+                                <div class="hit-the-floor">{{specialInfo.storeName}}</div></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <iframe width="600"
+                            height="450"
+                            frameborder="0" style="border:0"
+                            [src]="specialInfo.gpsSrc" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
     </div>
-    <button (click)="goBack()">Back</button>
 </div>
 
-
-
-
-
-<!-- Square card -->
-<!--<div class="mdl-card mdl-shadow--2dp demo-card-square">
-    <div class="mdl-card__title mdl-card__accent mdl-card--expand">
-        <h2 class="mdl-card__title-text">Card 2</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenan convallis.
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-            Action
-        </a>
-    </div>
-</div>-->
-<!-- Square card -->
-<!--<div class="mdl-card mdl-shadow--2dp demo-card-square">
-    <div class="mdl-card__title mdl-card--expand">
-        <h2 class="mdl-card__title-text">Card 3</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenan convallis.
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-        <a class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect">
-            Action
-        </a>
-    </div>
-</div>-->
-<!-- Square card -->
-<!--<div class="mdl-card mdl-shadow--2dp demo-card-square">
-    <div class="mdl-card__title mdl-card--expand">
-        <h2 class="mdl-card__title-text">Card 4</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenan convallis.
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-            Action
-        </a>
-    </div>
-</div>-->
-<!-- Square card -->
-<!--<div class="mdl-card mdl-shadow--2dp demo-card-square">
-    <div class="mdl-card__title mdl-card--expand">
-        <h2 class="mdl-card__title-text">Card 5</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenan convallis.
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-        <a class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect">
-            Action
-        </a>
-    </div>
-</div>-->
-<!-- Square card -->
-<!--<div class="mdl-card mdl-shadow--2dp demo-card-square">
-    <div class="mdl-card__title mdl-card--expand">
-        <h2 class="mdl-card__title-text">Card 6</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenan convallis.
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-            Action
-        </a>
-    </div>
-</div>-->
-<!--</mdl-layout-content>-->
+<my-spinner [isRunning]="isRequesting"></my-spinner>

@@ -1,29 +1,57 @@
 ﻿
+<br>
+<br>
+<br/>
 
-<p>
-    <button mdl-button-type="raised" mdl-button mdl-button-type="fab" mdl-colored="accent" mdl-ripple (click)="goBack()">
-        <mdl-icon>face</mdl-icon>
-    </button>
+<div class="container search-results"
+         infinite-scroll
+         [infiniteScrollDistance]="1"
+         [infiniteScrollThrottle]="10"
+         (scrolled)="onScrollDown()">
+    <!--<masonry [options]="{ transitionDuration: '0.8s' }">
+        <masonry-brick class="brick" *ngFor="let special of specials">
+            <div class="mdl-card mdl-shadow--2dp demo-card-square" >
+                <div class="mdl-card__media">
+                    <img [src]="special.image320" />
+                    <span class="demo-card-image__filename">
+                        {{special.name}}<br/>
+                        {{special.name}}
+                        <a class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect" [routerLink]="['/detail', special.id]">
+                            <div id="tt3" class="icon material-icons">link</div>
+                            <div class="mdl-tooltip" data-mdl-for="tt3">
+                                {{special.name}}
+                            </div>
+                        </a>
 
-</p>
-<p>
-    <voucher-detail [voucher]="selectedVoucher"></voucher-detail>
-</p>
-<hr/>
-    <div class="mdl-card mdl-shadow--2dp demo-card-square" *ngFor="let voucher of vouchers" (click)="onSelect(voucher)">
-        <div class="mdl-card__title mdl-card--expand">
-            <h2 class="mdl-card__title-text">{{voucher.name}}</h2>
+                    </span>
+
+                </div>
+
+            </div>
+        </masonry-brick>
+    </masonry>-->
+   <div class="mdl-card mdl-shadow--2dp demo-card-square" *ngFor="let special of specials">
+        <div class="mdl-card__media">
+            <img [src]="special.image320"  />
+            <span class="demo-card-image__filename">
+                {{special.name}}
+                <a class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect" [routerLink]="['/detail', special.id]">
+                    <div id="tt3" class="icon material-icons">link</div>
+                    <div class="mdl-tooltip" data-mdl-for="tt3">
+                        {{special.name}}
+                    </div>
+                </a>
+               
+            </span>
+
         </div>
-        <div class="mdl-card__supporting-text">
-            {{voucher.description}}
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
-            <a class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect" [routerLink]="['/detail', voucher.id]">
-                {{voucher.action}}
-            </a>
-        </div>
+
     </div>
+    <!--<p *ngFor="let i of array">
+        {{i}}
+    </p>-->
+</div>
 
 
+<my-spinner [isRunning]="isRequesting"></my-spinner>
 
-       
