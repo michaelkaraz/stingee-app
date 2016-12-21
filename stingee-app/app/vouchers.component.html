@@ -10,9 +10,9 @@
          (scrolled)="onScrollDown()">
     <!--<masonry [options]="{ transitionDuration: '0.8s' }">
         <masonry-brick class="brick" *ngFor="let special of specials">
-            <div class="mdl-card mdl-shadow--2dp demo-card-square" >
+            <div class="mdl-card mdl-shadow--2dp demo-card-square">
                 <div class="mdl-card__media">
-                    <img [src]="special.image320" />
+                    <img [src]="special.image320"/>
                     <span class="demo-card-image__filename">
                         {{special.name}}<br/>
                         {{special.name}}
@@ -30,6 +30,16 @@
             </div>
         </masonry-brick>
     </masonry>-->
+
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+            <div class="wrapper" *ngFor="let st of specialTypes">
+                <span class="square">
+                    <a class="tenth before after" (click)="getTypeCallback(st.code)">{{st.name}}</a>
+                </span>
+            </div>
+        </div>
+ 
+
    <div class="mdl-card mdl-shadow--2dp demo-card-square" *ngFor="let special of specials">
         <div class="mdl-card__media">
             <img [src]="special.image320"  />
@@ -41,15 +51,15 @@
                         {{special.name}}
                     </div>
                 </a>
+                <p>Within {{special.distance}} miles from you</p>
                
             </span>
 
         </div>
 
     </div>
-    <!--<p *ngFor="let i of array">
-        {{i}}
-    </p>-->
+
+   
 </div>
 
 

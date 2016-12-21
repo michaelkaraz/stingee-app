@@ -14,9 +14,11 @@ var vouchers_component_1 = require('./vouchers.component');
 var voucher_detail_component_1 = require('./voucher-detail.component');
 var examples_component_1 = require('./examples-component');
 var home_component_1 = require('./home.component');
+var map_example_component_1 = require('./map-example.component');
 var routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: home_component_1.HomeComponent },
+    { path: '', redirectTo: '/vouchers', pathMatch: 'full' },
+    { path: 'about', component: home_component_1.HomeComponent },
+    { path: 'map', component: map_example_component_1.MapExampleComponent },
     { path: 'detail/:id', component: voucher_detail_component_1.VoucherDetailComponent },
     { path: 'vouchers', component: vouchers_component_1.VouchersComponent },
     { path: 'examples', component: examples_component_1.ExamplesComponent }

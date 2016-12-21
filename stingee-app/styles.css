@@ -157,3 +157,6 @@ h2, h3 {
       -webkit-transform: scale(1.0);
     }
 }
+ #map {
+            height: 60vh;
+        }

@@ -1,5 +1,5 @@
 ﻿
-<nav class="navbar navbar-dark navbar-fixed-top scrolling-navbar">
+<nav class="navbar navbar-dark bg-inverse navbar-fixed-top scrolling-navbar">
 
     <!-- Collapse button-->
     <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx">
@@ -11,15 +11,22 @@
         <!--Collapse content-->
         <div class="collapse navbar-toggleable-xs" id="collapseEx">
             <!--Navbar Brand-->
-           
+
             <a href="http://www.stinjee.com/" class="navbar-brand">
-                <img src="http://www.stinjee.com/StinJeeWebLnx/wp-content/uploads/2015/12/SJ-logo-white-nopunch.png"  alt="Stin Jee Limited" class="logo-default">
+                <img src="http://www.stinjee.com/StinJeeWebLnx/wp-content/uploads/2015/12/SJ-logo-white-nopunch.png" alt="Stin Jee Limited" class="logo-default">
+
             </a>
+            <ul class="nav navbar-nav navbar-right" >
+
+                <li class="nav-item">
+                    <a class="nav-link mdl-navigation__link" ><i class="material-icons">my_location</i>&nbsp;{{title}}</a>
+                </li>
+
+            </ul>
             <!--Links-->
-            
             <!--Search form-->
             <form class="form-inline">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav">
                     <!--<li class="nav-item active">
                         <a class="nav-link  mdl-navigation__link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
                     </li>-->
@@ -29,12 +36,13 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/about">About</a>
-                    </li>  <li class="nav-item">
-                               <input class="form-control" type="text" placeholder="Search">
                     </li>
-                    
+                    <li class="nav-item">
+                        <input class="form-control" type="text" placeholder="Search">
+                    </li>
+
                 </ul>
-              
+
             </form>
         </div>
         <!--/.Collapse content-->
@@ -43,7 +51,6 @@
 
 </nav>
 <!--/.Navbar-->
-
 <!--Content-->
 <router-outlet></router-outlet>
 

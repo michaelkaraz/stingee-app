@@ -15,6 +15,8 @@ require('rxjs/add/operator/switchMap');
 var platform_browser_1 = require('@angular/platform-browser');
 var specialInfo_1 = require('./specialInfo');
 var voucher_service_1 = require('./voucher.service');
+var geocoding_service_1 = require('./geocoding.service');
+var geolocation_service_1 = require('./geolocation.service');
 //import { FacebookService, FacebookLoginResponse } from 'ng2-facebook-sdk/dist';
 var Safe = (function () {
     function Safe(sanitizer) {
@@ -33,12 +35,15 @@ var Safe = (function () {
 }());
 exports.Safe = Safe;
 var VoucherDetailComponent = (function () {
-    function VoucherDetailComponent(voucherService, route, location, sanitizer //,
-        ) {
+    function VoucherDetailComponent(voucherService, route, location, sanitizer, 
+        // private facebook: FacebookService
+        geolocation, geocoding) {
         this.voucherService = voucherService;
         this.route = route;
         this.location = location;
         this.sanitizer = sanitizer;
+        this.geolocation = geolocation;
+        this.geocoding = geocoding;
     }
     VoucherDetailComponent.prototype.stopRefreshing = function () {
         this.isRequesting = false;
@@ -52,8 +57,8 @@ var VoucherDetailComponent = (function () {
     //        );
     //}
     VoucherDetailComponent.prototype.ngOnInit = function () {
-        var _this = this;
         //debugger;
+        var _this = this;
         // Subscribe to route params
         this.sub = this.route.params.subscribe(function (params) {
             _this.isRequesting = true;
@@ -63,6 +68,26 @@ var VoucherDetailComponent = (function () {
                 .subscribe(function (special) {
                 //debugger;
                 _this.specialInfo = special;
+                //get GPS
+                _this.geolocation.getCurrentPosition().subscribe(function (data) {
+                    //debugger;
+                    _this.geo = data;
+                    // this.center = new google.maps.LatLng(this.geo.coords.latitude, this.geo.coords.longitude);
+                    //this.center = new google.maps.LatLng(35.1747522, 33.3480448, 20);
+                    _this.center = new google.maps.LatLng(_this.specialInfo.latitude, _this.specialInfo.longitude);
+                    _this.getLocationDetails(_this.center);
+                    var dist = _this.geocoding
+                        .lineOfSightDistanceCalc(35.1747522, 33.3480448, _this.specialInfo.latitude, _this.specialInfo.longitude, 'K');
+                    //alert(dist);
+                    //var dist = this.geocoding
+                    //    .lineOfSightDistanceCalc(this.geo.coords.latitude,
+                    //    this.geo.coords.longitude,
+                    //        this.specialInfo.latitude,
+                    //        this.specialInfo.longitude,
+                    //        'K');
+                }, function (error) { alert(error); }, function () {
+                    console.log(_this.geo);
+                });
                 _this.specialInfo.image = _this.sanitizer.bypassSecurityTrustUrl(_this.specialInfo.image);
                 _this.specialInfo.image320 = _this.sanitizer.bypassSecurityTrustUrl(_this.specialInfo.image320);
                 _this.specialInfo.image100 = _this.sanitizer.bypassSecurityTrustUrl(_this.specialInfo.image100);
@@ -86,6 +111,7 @@ var VoucherDetailComponent = (function () {
                 else {
                     _this.specialInfo.address += ",";
                 }
+                // debugger;
                 _this.specialInfo
                     .gpsSrc = _this.sanitizer.bypassSecurityTrustResourceUrl("https://www.google.com/maps/embed/v1/place?key=AIzaSyCw0ESOXX4AU1tVfAZXPpMXWElwSmVIdQ0&q=" +
                     _this.specialInfo.storeName + "," + _this.specialInfo.address + _this.specialInfo.country + " " +
@@ -100,6 +126,18 @@ var VoucherDetailComponent = (function () {
     VoucherDetailComponent.prototype.goBack = function () {
         this.location.back();
     };
+    VoucherDetailComponent.prototype.getLocationDetails = function (position) {
+        var _this = this;
+        // Translates the location into address.
+        this.geocoding.geocode(position).forEach(
+        // Next.
+        function (results) {
+            //debugger;
+            // Sets the marker to the center map.
+            _this.title = results[0].formatted_address;
+            // alert(address);
+        }, null).then(function () { return console.log('Geocoding service: completed.'); });
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', specialInfo_1.SpecialInfo)
@@ -110,7 +148,7 @@ var VoucherDetailComponent = (function () {
             templateUrl: './app/voucher-detail.component.html',
             styleUrls: ['./app/voucher-detail.component.css']
         }), 
-        __metadata('design:paramtypes', [voucher_service_1.VoucherService, router_1.ActivatedRoute, common_1.Location, platform_browser_1.DomSanitizer])
+        __metadata('design:paramtypes', [voucher_service_1.VoucherService, router_1.ActivatedRoute, common_1.Location, platform_browser_1.DomSanitizer, geolocation_service_1.GeolocationService, geocoding_service_1.GeocodingService])
     ], VoucherDetailComponent);
     return VoucherDetailComponent;
 }());

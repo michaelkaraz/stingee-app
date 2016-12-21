@@ -1,0 +1,96 @@
+﻿
+<br>
+<br>
+<br/>
+
+<div class="container search-results"
+         infinite-scroll
+         [infiniteScrollDistance]="1"
+         [infiniteScrollThrottle]="10"
+         (scrolled)="onScrollDown()">
+    <!--<masonry [options]="{ transitionDuration: '0.8s' }">
+        <masonry-brick class="brick" *ngFor="let special of specials">
+            <div class="mdl-card mdl-shadow--2dp demo-card-square">
+                <div class="mdl-card__media">
+                    <img [src]="special.image320"/>
+                    <span class="demo-card-image__filename">
+                        {{special.name}}<br/>
+                        {{special.name}}
+                        <a class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect" [routerLink]="['/detail', special.id]">
+                            <div id="tt3" class="icon material-icons">link</div>
+                            <div class="mdl-tooltip" data-mdl-for="tt3">
+                                {{special.name}}
+                            </div>
+                        </a>
+
+                    </span>
+
+                </div>
+
+            </div>
+        </masonry-brick>
+    </masonry>-->
+
+   <div class="mdl-card mdl-shadow--2dp demo-card-square" *ngFor="let special of specials">
+        <div class="mdl-card__media">
+            <img [src]="special.image320"  />
+            <span class="demo-card-image__filename">
+                {{special.name}}
+                <a class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect" [routerLink]="['/detail', special.id]">
+                    <div id="tt3" class="icon material-icons">link</div>
+                    <div class="mdl-tooltip" data-mdl-for="tt3">
+                        {{special.name}}
+                    </div>
+                </a>
+               
+            </span>
+
+        </div>
+
+    </div>
+    <!--<p *ngFor="let i of array">
+        {{i}}
+    </p>-->
+    <div class="row">
+
+        <div class="col-sm-6">
+
+            <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="warning">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Warning!</strong> {{ message }}
+            </div>
+
+            <!--these properties are required: center, zoom-->
+            <google-map [center]="center" [zoom]="zoom" [disableDefaultUI]="disableDefaultUI" [disableDoubleClickZoom]="disableDoubleClickZoom"
+                        [mapTypeId]="mapTypeId" [maxZoom]="maxZoom" [minZoom]="minZoom" [styles]="styles">
+                <!--this property is required: position-->
+                <google-map-marker [position]="position" [title]="title" [content]="content">
+                </google-map-marker>
+            </google-map>
+
+            <br>
+
+            <!--search-->
+            <div class="form-group">
+                <label class="control-label" for="input-search">Address</label>
+                <div class="input-group">
+                    <input type="text" id="input-search" class="form-control" [(ngModel)]="address" (keyup.enter)="search(address)" placeholder="Address">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-fab btn-fab-mini" title="search" (click)="search(address)">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!--get current position-->
+            <input class="btn btn-default btn-block" type="button" value="Get current position" (click)="getCurrentPosition()">
+
+        </div>
+
+    </div>
+</div>
+
+
+<my-spinner [isRunning]="isRequesting"></my-spinner>
+

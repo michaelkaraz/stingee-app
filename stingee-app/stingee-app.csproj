@@ -100,6 +100,8 @@
     <Content Include="app\home.component.css" />
     <Content Include="app\home.component.html" />
     <Content Include="app\spinner.html" />
+    <Content Include="app\map-example.component.css" />
+    <Content Include="app\map-example.component.html" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\mdb.css" />
@@ -199,13 +201,20 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app-routing.module.ts" />
     <TypeScriptCompile Include="app\app.component.ts" />
+    <TypeScriptCompile Include="app\google-map-marker.directive.ts" />
+    <TypeScriptCompile Include="app\google-map.directive.ts" />
     <TypeScriptCompile Include="app\facebooklogin.component.ts" />
-    <TypeScriptCompile Include="app\geolocation.service.ts" />
     <TypeScriptCompile Include="app\geolocation.ts" />
     <TypeScriptCompile Include="app\home.component.ts" />
+    <TypeScriptCompile Include="app\map-example.component.ts" />
     <TypeScriptCompile Include="app\mock-vouchers.ts" />
+    <TypeScriptCompile Include="app\geocoding.service.ts" />
+    <TypeScriptCompile Include="app\geolocation.service.ts" />
+    <TypeScriptCompile Include="app\maps.service.ts" />
     <TypeScriptCompile Include="app\specialInfo.ts" />
     <TypeScriptCompile Include="app\special.ts" />
+    <TypeScriptCompile Include="app\specialType.ts" />
+    <TypeScriptCompile Include="app\SpecialTypeCollection.ts" />
     <TypeScriptCompile Include="app\Spinner.Component.ts" />
     <TypeScriptCompile Include="app\voucher-detail.component.ts" />
     <TypeScriptCompile Include="app\voucher.service.ts" />
